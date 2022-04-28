@@ -122,6 +122,9 @@ public class Serializer implements ISerializer {
     @Override
     public void removeAllFilesFromDirectory(File directory) {
         File[] files = directory.listFiles();
+        if(files == null)
+            return;
+
         for (File file : files){
             if (!file.delete()){
                 System.out.println("Failed to delete "+file);

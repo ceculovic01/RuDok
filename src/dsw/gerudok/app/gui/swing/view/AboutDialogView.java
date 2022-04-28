@@ -5,13 +5,11 @@ import java.awt.*;
 
 public class AboutDialogView extends JDialog {
 
-    JLabel imePrezime1Lbl;
-    JLabel imePrezime2Lbl;
-    JLabel picture1Lbl;
-    JLabel picture2Lbl;
+    JLabel imePrezimeLbl;
+    JLabel pictureLbl;
+
     JPanel mainPanel;
     ImageIcon img1 = null;
-    ImageIcon img2 = null;
 
     public AboutDialogView(Frame owner, boolean modal) {
         super(owner, modal);
@@ -22,13 +20,9 @@ public class AboutDialogView extends JDialog {
 
 
     private void initialise() {
-        imePrezime1Lbl = new JLabel("Igor Todorović RN 50/2019",SwingConstants.CENTER);
-        imePrezime1Lbl.setFont(new Font("Arial Black", Font.BOLD, 22));
-        imePrezime2Lbl = new JLabel("Miloš Čečulović RN 28/2019",SwingConstants.CENTER);
-        imePrezime2Lbl.setFont(new Font("Arial Black", Font.BOLD, 22));
-        picture1Lbl = new JLabel("",SwingConstants.CENTER);
-        picture2Lbl = new JLabel("",SwingConstants.CENTER);
-        mainPanel = new JPanel(new GridLayout(2,2));
+        imePrezimeLbl = new JLabel("Miloš Čečulović RN 28/2019",SwingConstants.CENTER);
+        pictureLbl = new JLabel("",SwingConstants.CENTER);
+        mainPanel = new JPanel(new GridLayout(1,1));
 
     }
 
@@ -41,16 +35,11 @@ public class AboutDialogView extends JDialog {
         setSize(screenWidth / 2, screenHeight / 2);
         setLocationRelativeTo(null);
         setTitle("About");
+        img1 = new ImageIcon(this.getClass().getResource("images/img.png"));
+        pictureLbl.setIcon(img1);
 
-        img1 = new ImageIcon(this.getClass().getResource("images/img1.png"));
-        img2 = new ImageIcon(this.getClass().getResource("images/img2.png"));
-        picture1Lbl.setIcon(img1);
-        picture2Lbl.setIcon(img2);
-
-        mainPanel.add(imePrezime1Lbl);
-        mainPanel.add(picture1Lbl);
-        mainPanel.add(imePrezime2Lbl);
-        mainPanel.add(picture2Lbl);
+        mainPanel.add(imePrezimeLbl);
+        mainPanel.add(pictureLbl);
         mainPanel.setBackground(Color.lightGray);
         this.add(mainPanel,BorderLayout.CENTER);
 
